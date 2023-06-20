@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 8 and 10</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+
+        p {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="myParagraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero, nostrum!</p>
+    <button onclick="changeText(); addHighlight()" style="padding:6px 12px;cursor: pointer;">Click Me</button>
+
+    <script>
+        function changeText() {
+            const paragraph = document.getElementById("myParagraph");
+            paragraph.textContent = "Button Clicked!";
+        }
+        function addHighlight() {
+            const paragraph = document.getElementById("myParagraph");
+            paragraph.classList.add("highlight");
+        }
+    </script>
+</body>
+
+</html>

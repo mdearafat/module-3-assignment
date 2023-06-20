@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 9</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"
+        integrity="sha512-xiunq9hpKsIcz42zt0o2vCo34xV0j6Ny8hgEylN3XBglZDtTZ2nwnqF/Z/TTCc18sGdvCjbFInNd++6q3J0N6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span id="name-error" style="color: red;"></span>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="email-error" style="color: red;"></span>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="password-error" style="color: red;"></span>
+        <br>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <span id="confirm-password-error" style="color: red;"></span>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const nameField = document.getElementById("name");
+            const emailField = document.getElementById("email");
+            const passwordField = document.getElementById("password");
+            const confirmPasswordField = document.getElementById("confirm-password");
+
+            const nameError = document.getElementById("name-error");
+            const emailError = document.getElementById("email-error");
+            const passwordError = document.getElementById("password-error");
+            const confirmPasswordError = document.getElementById("confirm-password-error");
+
+            nameError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            confirmPasswordError.textContent = "";
+
+            if (nameField.value === "") {
+                nameError.textContent = "Name cannot be empty.";
+                return false;
+            } else if (!/^[A-Za-z]+$/.test(nameField.value)) {
+                nameError.textContent = "Name should contain only letters.";
+                return false;
+            }
+
+            if (emailField.value === "") {
+                emailError.textContent = "Email cannot be empty.";
+                return false;
+            } else if (
+                !/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailField.value)
+            ) {
+                emailError.textContent = "Invalid email address.";
+                return false;
+            }
+
+            if (passwordField.value === "") {
+                passwordError.textContent = "Password cannot be empty.";
+                return false;
+            } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(passwordField.value)) {
+                passwordError.textContent =
+                    "Password should have a minimum length of 8 characters, containing at least one uppercase letter, one lowercase letter, and one digit.";
+                return false;
+            }
+
+            if (confirmPasswordField.value === "") {
+                confirmPasswordError.textContent = "Confirm Password cannot be empty.";
+                return false;
+            } else if (confirmPasswordField.value !== passwordField.value) {
+                confirmPasswordError.textContent = "Passwords do not match.";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

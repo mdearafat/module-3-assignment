@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-13</title>
+    <style>
+        .red-text {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Paragraph Color Change:</h1>
+    <p id="paragraph1">This is paragraph 1 with id "paragraph1".</p>
+    <p class="red-text">This is paragraph 2 with class "red-text".</p>
+    <p class="red-text" id="paragraph3">This is paragraph 3 with class "red-text" and id "paragraph3".</p>
+    <p class="green-text">This is paragraph 4 with class "green-text".</p>
+
+    <script>
+        function changeParagraphColor(className) {
+            const paragraphs = document.querySelectorAll('.' + className);
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.color = 'red';
+            }
+        }
+        changeParagraphColor('red-text');
+
+    </script>
+</body>
+
+</html>

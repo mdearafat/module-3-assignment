@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-11</title>
+</head>
+
+<body>
+    <ul id="myList"></ul>
+
+    <script>
+        function createListItems() {
+            let ul = document.getElementById("myList");
+
+            for (let i = 1; i <= 5; i++) {
+                let li = document.createElement("li");
+                li.appendChild(document.createTextNode("Item " + i));
+                ul.appendChild(li);
+            }
+        }
+
+        createListItems();
+    </script>
+</body>
+
+</html>

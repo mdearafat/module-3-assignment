@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem-15</title>
+</head>
+
+<body>
+
+    <script>
+        const payload = {
+            name: 'John Doe',
+            email: 'johndoe@example.com'
+        };
+
+        axios.post('https://api.example.com/data', payload)
+            .then(handleResponse)
+            .catch(handleError);
+
+        function handleResponse(response) {
+            console.log('Response:', response.data);
+        }
+
+        function handleError(error) {
+            console.error('Error:', error);
+        }
+        sendAjaxGetRequest();
+    </script>
+</body>
+
+</html>
